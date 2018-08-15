@@ -53,6 +53,7 @@ class Student
   end
 
   def self.create(hash)
+    
     DB[:conn].execute("INSERT INTO students (name, grade) VALUES (?,?)", hash[:name], hash[:grade]);
 
     id = DB[:conn].execute("SELECT last_insert_rowid() FROM students");
